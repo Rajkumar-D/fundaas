@@ -1,0 +1,73 @@
+
+<h3 class="glyphicons home"><i></i>Projects Home</h3>
+<div class="separator bottom"></div>
+
+<div class="row-fluid">
+		<div class="span3">
+			<!-- Widget -->
+			<div class="widget widget-heading-simple widget-body-gray">
+				<div class="widget-body list">
+				
+					<!-- List -->
+					<ul>
+						{{#each categories.val}}
+						<li onclick="{{getProjectMethod id typeId}}">
+							<a >{{name}}</a>
+							<span class="badge">{{count}}</span>
+						</li>
+						{{/each}}
+						
+					</ul>
+					<!-- // List END -->
+					
+				</div>
+			</div>
+	
+		<!-- // Widget END -->
+			
+			<div class="widget widget-heading-simple widget-body-gray">
+				<div class="widget-head"><h4 class="heading glyphicons warning_sign strong"><i></i>Important note</h4></div>
+				<div class="widget-body"><p class="margin-none">Launching the Fundaas for uploading projects! A website for every product around the globe.</p></div>
+			</div>
+			
+			<!--
+			<div class="widget widget-heading-simple widget-body-gray">
+				<div class="widget-head"><h4 class="heading glyphicons tags strong"><i></i>Labels</h4></div>
+				<div class="widget-body center"><span class="label">responsive blog</span> <span class="label">12 column grid</span> <span class="label">awesome</span> <span class="label">mobile first</span> <span class="label">easy development</span> <span class="label">html template</span></div>
+			</div>
+			-->
+		
+		</div>
+		<div class="span9">
+			{{#each project.val}}
+				
+			<div class="widget widget-heading-simple widget-body-white">	
+				<div class="widget-body">
+					<div class="row-fluid">	
+						<div style="height:30%">
+							<a href="" class="thumb"><div style="background-image:url('../common/theme/images/gallery-2/16.jpg');width:100%;">
+							<img src="{{image}}" style="width:100%"/> 
+							
+							<!-- <img src='data:image/jpg;base64,{{image}}'></div></a> -->
+						</div>
+						<div class="span8" style="width:97%">
+							<h5 class="strong text-uppercase">{{{projectName}}}</h5>
+							<span class="glyphicons single regular user"><i></i> by <a href=#  onclick="openSite('{{{companySite}}}')">{{{company}}}</a> </span>
+							<span class="glyphicons single regular calendar"><i></i> on {{{date}}}</span>
+							{{#ifcondition ../company.companyId companyId}}
+								<span class="glyphicons single regular edit"><i></i><a href=# onclick="editProject({{{projectId}}})">Edit</a>  </span>
+							{{/ifcondition}}
+							<div class="separator bottom"></div>
+							<p>{{{description}}}</p>
+							<p class="margin-none strong"><a href="#" onclick="showFullDescription('{{{projectId}}}')" class="glyphicons single chevron-right"><i></i>read more</a></p>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			{{/each}}
+
+			</div>
+		
+		</div>
+	</div>

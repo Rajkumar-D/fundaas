@@ -1,0 +1,118 @@
+<link href="../common/theme/css/lib/editor.css" rel="stylesheet">
+<link href="../common/theme/css/lib/editor.css" rel="stylesheet">
+<link href="../common/theme/css/lib/editor.css" rel="stylesheet">
+<body class="login">
+	
+
+	
+<div id="login">
+
+	<div class="wrapper signup">
+		
+			<h3 class="glyphicons snowflake">Edit Project <i></i></h3>
+			<div class="separator bottom"></div>
+			<div id="errorDiv" class="alert alert-error"/>
+			<!-- Box -->
+			<div class="widget widget-heading-simple">
+				<div class="widget-body">
+		
+					<!-- Form -->
+				 <form id="editProjectForm" method="POST" action="/editProject" enctype="multipart/form-data">
+					<div id="editProjForm"> 
+					<input type="hidden" name="Project Id" id="projectId" value={{project.projectId}}>
+					<!-- Row -->
+					<div class="row-fluid row-merge">
+					
+						<!-- Column -->
+						<div class="span6">
+							<div class="innerR">
+								<label class="strong">Project Title</label>
+								<input type="text" class="input-block-level" id="projectTitle" name="Project Name" placeholder="Project Name" value="{{project.projectName}}"/>
+								<label class="strong">Project Type</label>
+									<select class="input-block-level" id="projectType" name="Project Type">
+								    	<option value="">---Select Option---</option>
+								    	{{#each type}}
+									    	{{#ifcondition type_id ../project.projectType}}
+										    	<option value='{{type_id}}' selected='selected'>{{name}}</option>
+										    {{else}}
+										    	<option value='{{type_id}}' >{{name}}</option>	
+										    {{/ifcondition}}	
+									    {{/each}}
+								    </select>						
+									
+								<label class="strong">Project Domain</label>
+								<select class="input-block-level" id="projectDomain" name="Project Domain" value="{{project.projectDomain}}">
+										<option value="">---Select Option---</option>
+										{{#each domain}}
+											{{#ifcondition domain_id ../project.projectDomain}}
+												<option value={{domain_id}} selected='selected'>{{name}}</option>
+											{{else}}
+												<option value={{domain_id}}>{{name}}</option>
+											{{/ifcondition}}	
+									    {{/each}}
+								    </select>
+
+							</div>
+						</div>
+						<!-- // Column END -->
+						
+						<!-- Column -->
+						<div class="span6">
+							<div class="innerL">
+
+								<label class="strong">Short Description</label>
+								<textarea  class="input-block-level" id="shortDesc" name="Short Discription" style="height:95px;resize:none" rows="3" cols="90" placeholder="Short Discription" >{{project.description}}</textarea>
+								
+								<label class="strong">Project Image</label>
+								<input type="file" class="input-block-level" id="projectImage" name="projectImage" placeholder="Project Image" value={{project.image}}></input>    
+								<input type="hidden" name="image" id="imageName" value={{project.image}}>
+							</div>
+							
+						</div>
+						
+						
+						
+					</div>
+					<div class="separator bottom"></div>
+					<label class="strong">Long Description</label>
+					<input type=hidden id="longDescVal" value="{{project.long_description}}"/>
+					<textarea id="longDesc" class="editor"  tabindex="1">{{project.long_description}}</textarea>
+					<input type="hidden" id="htmlDesc" name="long_description">
+					<div class="separator bottom"></div>
+					<div style="text-align:center;"><a href="#" style="width:20%" onclick="postEditProject('editProjectForm','/editProject')" class="btn btn-icon-stacked btn-block-small btn-success glyphicons snowflake" align=center><i></i><span>Edit Project</span><span class="strong">And let the world see</span>
+					<a href="#" style="width:20%" onclick="postDeleteProject('editProjectForm','/deleteProject')" class="btn btn-icon-stacked btn-block-small btn-failure glyphicons delete" align=center><i></i><span>Delete Project</span><span class="strong">And remove project</span>
+
+					</a></div>
+
+
+
+					<!-- // Row END -->
+					</div>
+				</form>
+					<!-- // Form END -->
+		
+		
+				</div>
+				<!-- // Box END -->
+				
+			</div>
+			
+	</div>
+	
+</div>
+<!-- // Wrapper END -->	
+		</div>
+		<!-- // Content END -->
+		
+		
+		<!-- // Footer END -->
+		
+	</div>
+	<!-- // Main Container Fluid END -->
+
+<!-- // Themer END -->
+	<!-- <script src="../common/js/lib/ckeditor/ckeditor.js"></script> -->
+
+
+	
+</body>

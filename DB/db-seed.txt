@@ -1,0 +1,93 @@
+
+
+
+
+create table admin(admin_id integer primary key not null,
+			name varchar(100),
+			email varchar(100),
+			password varchar(100),
+			created_ts timestamp,
+			modified_ts timestamp);				
+
+
+create table company(company_id integer primary key not null,
+				name varchar(100) not null,
+				email varchar(100),
+				passwrd varchar(100),
+				address varchar(255),
+				description varchar(255),	
+				logo_image varchar(255),
+				website varchar(255),
+				phone_no varchar(100),
+				mobile varchar(100) not null,
+				working_fields varchar(255),
+				success_count integer,
+				admin_id integer references admin(admin_id),
+				created_ts timestamp,
+				modified_ts timestamp);
+
+
+
+create table buyer(buyer_id integer primary key not null,
+		   name varchar(100),
+		   email varchar(100),
+		   passwd varchar(100),
+		   phone_no varchar(100),
+		   mobile varchar(100) not null,
+		   created_ts timestamp,
+		   modified_ts timestamp);
+
+
+
+create table project_domain(domain_id integer primary key,
+			   name varchar(100),
+			   description varchar(255),
+			   created_ts timestamp,
+			   modified_ts timestamp);
+			   
+create table project_type(type_id integer primary key,
+			    name varchar(100),
+			    description varchar(255),
+			    image varchar(255),
+			    onclick varchar(255),
+			    onclickArg varchar(255),
+			    created_ts timestamp,
+			    modified_ts timestamp);
+
+
+create table project(project_id integer not null,
+			       buyer_id integer not null references buyer(buyer_id),
+				   company_id integer not null references company(company_id),
+			       name varchar(100),
+			       description varchar(255),
+			       long_description text,
+			       nature varchar(255),
+			       type_id integer references project_type(type_id),
+			       domain_id integer references project_domain(domain_id),
+			       specificetion varchar(255),	
+			       image varchar(244),
+			       dead_line timestamp,
+			       status varchar(100),
+			       created_ts timestamp,
+			       modified_ts timestamp,
+			       primary key(project_id)) ;
+
+
+insert into admin values(1,'admin','','admin',now(),now());
+
+insert into buyer values(0,'anonymous','','','','',now(),now());
+insert into buyer values(1,'NIL','','','','',now(),now());
+insert into company values(0,'NIL','','','','','','','','','',0,1,now(),now());
+
+				   
+insert into project_type values(1,'Academic','','bookmark','showProjects','academic',now(),now());
+insert into project_type values(2,'Commercial','','coins','showProjects','commercial',now(),now());
+insert into project_type values(3,'RND','','vector_path_polygon','showProjects','rnd',now(),now());		
+		   
+insert into project_domain values(1,'Mechanical','',now(),now());
+insert into project_domain values(2,'Information Technology','',now(),now());
+insert into project_domain values(3,'Accounting','',now(),now());
+insert into project_domain values(4,'Data Entry','',now(),now());
+insert into project_domain values(5,'Cevil Engenering','',now(),now());
+insert into project_domain values(6,'Electronics','',now(),now());
+insert into project_domain values(7,'Teaching','',now(),now());			    		   			   

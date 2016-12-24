@@ -1,0 +1,46 @@
+
+<h3 class="glyphicons home"><i></i>Full Description</h3>
+<div class="separator bottom"></div>
+
+<div class="row-fluid">
+		<div class="span3">
+			<!-- Widget -->
+			<div class="widget widget-heading-simple widget-body-gray">
+				<div class="widget-body list">
+				
+					<!-- List -->
+					<ul>
+						{{#each categories.val}}
+						<li onclick="{{getProjectMethod id typeId}}">
+							<a >{{name}}</a>
+							<span class="badge">{{count}}</span>
+						</li>
+						{{/each}}
+						
+					</ul>
+					<!-- // List END -->
+					
+				</div>
+			</div>
+	
+		<!-- // Widget END -->
+			
+			<div class="widget widget-heading-simple widget-body-gray">
+				<div class="widget-head"><h4 class="heading glyphicons snowflake strong"><i></i>{{project.projectName}}</h4></div>
+				<img src="{{project.image}}">
+			</div>
+			
+			<!--
+			<div class="widget widget-heading-simple widget-body-gray">
+				<div class="widget-head"><h4 class="heading glyphicons tags strong"><i></i>Labels</h4></div>
+				<div class="widget-body center"><span class="label">responsive blog</span> <span class="label">12 column grid</span> <span class="label">awesome</span> <span class="label">mobile first</span> <span class="label">easy development</span> <span class="label">html template</span></div>
+			</div>
+			-->
+		
+		</div>
+		<div id="fullDesc" class="span9">
+			{{{project.long_description}}}
+			</div>
+		
+		</div>
+	</div>

@@ -1,0 +1,11 @@
+#buyerDetails{
+	display: none;
+}
+
+#errorDiv{
+	visibility: hidden;
+	display: none;
+	background: #ffcccc;
+  	color: #ff0000;
+  	border-color: #ffcccc;
+}
